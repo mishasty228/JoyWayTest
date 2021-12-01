@@ -32,10 +32,16 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Health = 100;
 
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	float Reload = 1.f;
+
 	UPROPERTY(BlueprintReadWrite,EditDefaultsOnly)
 	float MaxHealth = 100;
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
+	bool bReloading = false;
+	
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Meta = (ExposeOnSpawn = true) )
 	TEnumAsByte<EAmmoType> AmmoType = EAT_None;
 
 protected:

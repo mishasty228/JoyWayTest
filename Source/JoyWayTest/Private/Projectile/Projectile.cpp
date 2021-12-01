@@ -25,7 +25,7 @@ AProjectile::AProjectile()
 	Movement->Bounciness = Bounciness;
 	Movement->ProjectileGravityScale =GravityScale;
 
-	
+
 }
 
 // Called when the game starts or when spawned
@@ -39,7 +39,7 @@ void AProjectile::BeginPlay()
 	Movement->Bounciness = Bounciness;
 	Movement->ProjectileGravityScale =GravityScale;
 	
-	Collision->InitSphereRadius(Range);
+	Collision->SetSphereRadius(Range);
 }
 
 // Called every frame

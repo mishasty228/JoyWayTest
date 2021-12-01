@@ -231,10 +231,11 @@ void AJoyWayTestCharacter::Die()
 	UE_LOG(LogTemp,Display,TEXT("Bruh ama dead"));
 	this->GetMovementComponent()->StopActiveMovement();
 	this->GetMesh()->SetSimulatePhysics(true);
+	this->GetMesh()->SetCollisionProfileName("PhysicsActor");
 	FTimerHandle TimerHandle;
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, [&]()
 	{
-		UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+		this->Destroy();
 	}, 3, false);
 	
 }

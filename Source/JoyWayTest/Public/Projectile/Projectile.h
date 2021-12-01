@@ -34,6 +34,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float Range = 15.f;
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Meta = (ExposeOnSpawn = true))
+	float Damage = 11.f;
+	
+	UPROPERTY(BlueprintReadWrite,EditAnywhere, Meta = (ExposeOnSpawn = true))
+	TSubclassOf<AActor> TargetType;
+	
 	UPROPERTY(VisibleAnywhere)
 	UProjectileMovementComponent* Movement;
 
