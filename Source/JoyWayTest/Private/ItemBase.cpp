@@ -19,7 +19,8 @@ AItemBase::AItemBase()
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AItemBase::OnOverlapBegin);
 
 	ItemStruct = FItemStruct();
-	
+
+	RootComponent = Mesh;
 }
 
 // Called when the game starts or when spawned

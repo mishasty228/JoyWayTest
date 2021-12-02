@@ -112,13 +112,13 @@ void AJoyWayTestCharacter::GetItem(AItemBase* Item)
 		AddAmmo(Weapon);
 		SetWeapon(WeaponsAvailable.Num()-1);
 		WeaponIndex = WeaponsAvailable.Num()-1;
-		UE_LOG(LogTemp, Display, TEXT("I found an %s"), *Item->ItemStruct.Name);
+		//UE_LOG(LogTemp, Display, TEXT("I found an %s"), *Item->ItemStruct.Name);
 	}
 }
 
 void AJoyWayTestCharacter::SetWeapon(int32 index)
 {
-	UE_LOG(LogTemp, Display, TEXT("I found an %s"), *WeaponsAvailable[index].GetDefaultObject()->Mesh->GetStaticMesh()->GetName());
+	//UE_LOG(LogTemp, Display, TEXT("I found an %s"), *WeaponsAvailable[index].GetDefaultObject()->Mesh->GetStaticMesh()->GetName());
 	WeaponMesh->SetStaticMesh(WeaponsAvailable[index].GetDefaultObject()->Mesh->GetStaticMesh());
 	AmmoType = WeaponsAvailable[index].GetDefaultObject()->AmmoType;
 }
@@ -189,7 +189,7 @@ void AJoyWayTestCharacter::GetDamage(float Damage)
 
 void AJoyWayTestCharacter::Fire()
 {
-	OnFire;
+	//OnFire;
 	/*UE_LOG(LogTemp, Display, TEXT("Fire"));
 	switch (AmmoType)
 	{
@@ -210,7 +210,7 @@ void AJoyWayTestCharacter::Fire()
 
 void AJoyWayTestCharacter::Aim()
 {
-	UE_LOG(LogTemp, Display, TEXT("Aim"));
+	//UE_LOG(LogTemp, Display, TEXT("Aim"));
 	FollowCamera->SetActive(false);
 	FollowCameraAim->SetActive(true);
 	Aiming = true;
@@ -219,7 +219,7 @@ void AJoyWayTestCharacter::Aim()
 
 void AJoyWayTestCharacter::UnAim()
 {
-	UE_LOG(LogTemp, Display, TEXT("UnAim"));
+	//UE_LOG(LogTemp, Display, TEXT("UnAim"));
 	FollowCameraAim->SetActive(false);
 	FollowCamera->SetActive(true);
 	Aiming = false;
@@ -228,14 +228,14 @@ void AJoyWayTestCharacter::UnAim()
 
 void AJoyWayTestCharacter::Die()
 {
-	UE_LOG(LogTemp,Display,TEXT("Bruh ama dead"));
+	//UE_LOG(LogTemp,Display,TEXT("Bruh ama dead"));
 	this->GetMovementComponent()->StopActiveMovement();
 	this->GetMesh()->SetSimulatePhysics(true);
 	this->GetMesh()->SetCollisionProfileName("PhysicsActor");
 	FTimerHandle TimerHandle;
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, [&]()
 	{
-		UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+		UGameplayStatics::OpenLevel(this, FName(LevelName));
 		//this->Destroy();
 	}, 3, false);
 	

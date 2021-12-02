@@ -40,6 +40,8 @@ public:
 
 	UPROPERTY(BlueprintReadWrite,EditAnywhere)
 	bool bReloading = false;
+
+	
 	
 	UPROPERTY(BlueprintReadWrite,EditAnywhere, Meta = (ExposeOnSpawn = true) )
 	TEnumAsByte<EAmmoType> AmmoType = EAT_None;
