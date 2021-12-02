@@ -235,7 +235,8 @@ void AJoyWayTestCharacter::Die()
 	FTimerHandle TimerHandle;
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, [&]()
 	{
-		this->Destroy();
+		UGameplayStatics::OpenLevel(this, FName(*GetWorld()->GetName()), false);
+		//this->Destroy();
 	}, 3, false);
 	
 }
